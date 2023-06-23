@@ -2,6 +2,7 @@ import { useState } from "react";
 import coracaoVazio from '../../assets/images/coracao-vazio.png';
 import coracaoVermelho from '../../assets/images/coracao-vermelho.png';
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 function ListItem({team, id, local, setTeamList }) {
 
@@ -19,7 +20,7 @@ function ListItem({team, id, local, setTeamList }) {
 
   return (
     <>
-      <li key={id}>{team} - {local}
+      <li key={id}><Link to={`/teams/details/${id}`}>{team} - {local} </Link>
         <img src={'https://vasco.com.br/wp-content/uploads/2020/10/ESCUDO-VASCO-RGB-1-450x450.png'} width='50px' />
         <button type="button" onClick={handleDelete}>Deletar</button>
         <button type="button" onClick={handleClick}>{isFavorit ? 'Desfavoritar' : 'Favoritar'}</button>
